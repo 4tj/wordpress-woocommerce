@@ -1,5 +1,8 @@
 FROM wordpress:latest
 
-COPY ./plugins/ /usr/src/wordpress/wp-content/plugins/
-COPY ./themes/ /usr/src/wordpress/wp-content/themes/
+WORKDIR /var/www/html
+
+COPY ./wp-content/ ./wp-content/
+RUN chmod -R 755 ./wp-content/
+
 COPY php-filesize.ini $PHP_INI_DIR/conf.d/
