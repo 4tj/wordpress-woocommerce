@@ -1,0 +1,19 @@
+{
+  "build": {
+    "env": {
+      "WORDPRESS_DB_HOST": "${{MySQL.MYSQLHOST}}",
+      "WORDPRESS_DB_NAME": "${{MySQL.MYSQLDATABASE}}",
+      "WORDPRESS_DB_USER": "${{MySQL.MYSQLUSER}}",
+      "WORDPRESS_AUTH_KEY": "${{secret(32)}}",
+      "WORDPRESS_AUTH_SALT": "${{secret(32)}}",
+      "WORDPRESS_NONCE_KEY": "${{secret(32)}}",
+      "WORDPRESS_NONCE_SALT": "${{secret(32)}}",
+      "WORDPRESS_DB_PASSWORD": "${{MySQL.MYSQLPASSWORD}}",
+      "WORDPRESS_CONFIG_EXTRA": "define('DOMAIN_CURRENT_SITE','${{RAILWAY_PUBLIC_DOMAIN}}');define('WP_HOME','https://${{RAILWAY_PUBLIC_DOMAIN}}');define('WP_SITEURL','https://${{RAILWAY_PUBLIC_DOMAIN}}');",
+      "WORDPRESS_LOGGED_IN_KEY": "${{secret(32)}}",
+      "WORDPRESS_LOGGED_IN_SALT": "${{secret(32)}}",
+      "WORDPRESS_SECURE_AUTH_KEY": "${{secret(32)}}",
+      "WORDPRESS_SECURE_AUTH_SALT": "${{secret(32)}}"
+    }
+  }
+}
